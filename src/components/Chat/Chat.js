@@ -26,6 +26,32 @@ function Chat() {
                     </IconButton>
                 </div>
             </div>
+
+            <div className='chat__body'>
+                <p className='chat__message'>
+                    <span className='chat__name'>AJ-Romera</span>
+                    This is a message!!
+                    <span className='chat__timestamp'>
+                        {new Date().toLocaleString()}
+                    </span>
+                </p>
+
+                <p className='chat__message'>
+                    <span className='chat__name'>AJ-Romera</span>
+                    This is a message!!
+                    <span className='chat__timestamp'>
+                        {new Date().toLocaleString()}
+                    </span>
+                </p>
+
+                <p className='chat__message'>
+                    <span className='chat__name'>AJ-Romera</span>
+                    This is a message!!
+                    <span className='chat__timestamp'>
+                        {new Date().toLocaleString()}
+                    </span>
+                </p>
+            </div>
         </div>
     );
 }

@@ -24,3 +24,34 @@
 .chat__headerInfo p {
     color: gray;
 }
+
+.chat__body {
+    flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1488867605300-0380106bc701?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=322&q=80');
+    background-repeat: repeat;
+    background-position: center;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.chat__message {
+    position: relative;
+    font-size: 16px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.chat__name {
+    position: absolute;
+    top: -15px;
+    font-weight: 800;
+    font-size: xx-small;
+}
+
+.chat__timestamp {
+    margin-left: 10px;
+    font-size: xx-small;
+}
