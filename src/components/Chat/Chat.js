@@ -32,7 +32,7 @@ function Chat({ messages }) {
             </div>
 
             <div className='chat__body'>
-                {messages.map((message) => {
+                {messages.map((message) => (
                     <p
                         className={`chat__message ${
                             message.received && 'chat__receiver'
@@ -43,16 +43,8 @@ function Chat({ messages }) {
                         <span className='chat__timestamp'>
                             {message.timestamp}
                         </span>
-                    </p>;
-                })}
-
-                <p className='chat__message'>
-                    <span className='chat__name'>AJ-Romera</span>
-                    This is a message!!
-                    <span className='chat__timestamp'>
-                        {new Date().toLocaleString()}
-                    </span>
-                </p>
+                    </p>
+                ))}
             </div>
 
             <div className='chat__footer'>
