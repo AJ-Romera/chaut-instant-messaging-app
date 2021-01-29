@@ -7,7 +7,7 @@ import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import MicIcon from '@material-ui/icons/Mic';
 
-function Chat() {
+function Chat({ messages }) {
     return (
         <div className='chat'>
             <div className='chat__header'>
@@ -32,21 +32,19 @@ function Chat() {
             </div>
 
             <div className='chat__body'>
-                <p className='chat__message'>
-                    <span className='chat__name'>AJ-Romera</span>
-                    This is a message!!
-                    <span className='chat__timestamp'>
-                        {new Date().toLocaleString()}
-                    </span>
-                </p>
-
-                <p className='chat__message chat__receiver'>
-                    <span className='chat__name'>AJ-Romera</span>
-                    This is a message!!
-                    <span className='chat__timestamp'>
-                        {new Date().toLocaleString()}
-                    </span>
-                </p>
+                {messages.map((message) => {
+                    <p
+                        className={`chat__message ${
+                            message.received && 'chat__receiver'
+                        }`}
+                    >
+                        <span className='chat__name'>{message.name}</span>
+                        {message.message}
+                        <span className='chat__timestamp'>
+                            {message.timestamp}
+                        </span>
+                    </p>;
+                })}
 
                 <p className='chat__message'>
                     <span className='chat__name'>AJ-Romera</span>
