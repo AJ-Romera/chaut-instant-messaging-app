@@ -7,6 +7,7 @@ import axios from './axios';
 
 function App() {
     const [messages, setMessages] = useState([]);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
         axios.get('/messages/sync').then((response) => {
@@ -34,10 +35,14 @@ function App() {
 
     return (
         <div className='app'>
-            <div className='app__body'>
-                <Sidebar />
-                <Chat messages={messages} />
-            </div>
+            {!user ? (
+                <h1>LOGIN</h1>
+            ) : (
+                <div className='app__body'>
+                    <Sidebar />
+                    <Chat messages={messages} />
+                </div>
+            )}
         </div>
     );
 }
