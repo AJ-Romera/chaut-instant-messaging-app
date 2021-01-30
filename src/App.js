@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import Chat from './components/Chat/Chat';
-import Sidebar from './components/Sidebar/Sidebar';
 import Pusher from 'pusher-js';
 import axios from './axios';
+
+/* Components */
+import Chat from './components/Chat/Chat';
+import Sidebar from './components/Sidebar/Sidebar';
+import Login from './components/Login/Login';
 
 function App() {
     const [messages, setMessages] = useState([]);
@@ -36,7 +39,7 @@ function App() {
     return (
         <div className='app'>
             {!user ? (
-                <h1>LOGIN</h1>
+                <Login />
             ) : (
                 <div className='app__body'>
                     <Sidebar />
