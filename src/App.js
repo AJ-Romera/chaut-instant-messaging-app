@@ -7,10 +7,11 @@ import axios from './axios';
 import Chat from './components/Chat/Chat';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './components/Login/Login';
+import { useStateValue } from './StateProvider';
 
 function App() {
     const [messages, setMessages] = useState([]);
-    const [user /* setUser */] = useState(null);
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
         axios.get('/messages/sync').then((response) => {
