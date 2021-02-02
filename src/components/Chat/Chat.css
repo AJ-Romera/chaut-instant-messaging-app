@@ -31,6 +31,7 @@
     background-repeat: repeat;
     background-position: center;
     padding: 30px;
+    padding-bottom: 20px;
     overflow-y: auto;
 }
 
@@ -42,6 +43,10 @@
     border-radius: 10px;
     background-color: #ffffff;
     margin-bottom: 30px;
+}
+
+.chat__message:last-child {
+    margin-bottom: 0px;
 }
 
 .chat__receiver {
