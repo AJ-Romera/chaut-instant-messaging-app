@@ -10,7 +10,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import SearchOutlinedIcon from '@material-ui/icons/SearchOutlined';
 import { Avatar, IconButton } from '@material-ui/core';
 
-function Sidebar() {
+function Sidebar({ rooms }) {
     const [{ user }, dispatch] = useStateValue();
 
     return (
@@ -39,10 +39,13 @@ function Sidebar() {
 
             <div className='sidebar__chats'>
                 <SidebarChat addNewChat />
-                <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
+                {rooms.map((room) => (
+                    <SidebarChat
+                        key={room._id}
+                        id={room._id}
+                        name={room.name}
+                    />
+                ))}
             </div>
         </div>
     );

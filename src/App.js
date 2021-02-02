@@ -12,10 +12,17 @@ import { useStateValue } from './StateProvider';
 function App() {
     const [messages, setMessages] = useState([]);
     const [{ user }, dispatch] = useStateValue();
+    const [rooms, setRooms] = useState([]);
 
     useEffect(() => {
         axios.get('/messages/sync').then((response) => {
             setMessages(response.data);
+        });
+    }, []);
+
+    useEffect(() => {
+        axios.get('/rooms/sync').then((response) => {
+            setRooms(response.data);
         });
     }, []);
 
@@ -37,13 +44,31 @@ function App() {
 
     console.log(messages);
 
+    useEffect(() => {
+        const pusher = new Pusher('d8b17a5966dacdd69d8b', {
+            cluster: 'eu',
+        });
+
+        const roomsChannel = pusher.subscribe('messages');
+        roomsChannel.bind('inserted', (newRoom) => {
+            setRooms([...rooms, newRoom]);
+        });
+
+        return () => {
+            roomsChannel.unbind_all();
+            roomsChannel.unsubscribe();
+        };
+    }, [rooms]);
+
+    console.log(rooms);
+
     return (
         <div className='app'>
             {!user ? (
                 <Login />
             ) : (
                 <div className='app__body'>
-                    <Sidebar />
+                    <Sidebar rooms={rooms} />
                     <Chat messages={messages} />
                 </div>
             )}
