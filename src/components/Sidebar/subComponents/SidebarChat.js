@@ -20,14 +20,6 @@ function SidebarChat({ id, name, addNewChat }) {
         });
     };
 
-    /* const createChat = () => {
-        const roomName = prompt('Please enter a name for the chat room');
-
-        if (roomName) {
-             database stuff here...
-        }
-    }; */
-
     return !addNewChat ? (
         <div className='sidebarChat'>
             <Avatar

@@ -63,6 +63,7 @@ function Chat({ messages }) {
                         className={`chat__message ${
                             message.received && 'chat__receiver'
                         }`}
+                        key={message._id}
                     >
                         <span className='chat__name'>{message.name}</span>
                         {message.message}
