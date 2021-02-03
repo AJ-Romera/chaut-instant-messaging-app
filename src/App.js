@@ -11,8 +11,8 @@ import { useStateValue } from './StateProvider';
 
 function App() {
     const [messages, setMessages] = useState([]);
-    const [{ user }, dispatch] = useStateValue();
     const [rooms, setRooms] = useState([]);
+    const [{ user }, dispatch] = useStateValue();
 
     useEffect(() => {
         axios.get('/messages/sync').then((response) => {
