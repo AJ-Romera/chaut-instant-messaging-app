@@ -49,7 +49,7 @@ function App() {
             cluster: 'eu',
         });
 
-        const roomsChannel = pusher.subscribe('messages');
+        const roomsChannel = pusher.subscribe('rooms');
         roomsChannel.bind('inserted', (newRoom) => {
             setRooms([...rooms, newRoom]);
         });
