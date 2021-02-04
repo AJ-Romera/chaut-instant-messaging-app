@@ -9,7 +9,7 @@ import { AttachFile, MoreVert, SearchOutlined } from '@material-ui/icons';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import MicIcon from '@material-ui/icons/Mic';
 
-function Chat({ rooms, messages }) {
+function Chat({ messages }) {
     const [input, setInput] = useState('');
     const [{ user }, dispatch] = useStateValue();
 
@@ -61,7 +61,7 @@ function Chat({ rooms, messages }) {
                 {messages.map((message) => (
                     <p
                         className={`chat__message ${
-                            message.received && 'chat__receiver'
+                            message.name == user.displayName && 'chat__receiver'
                         }`}
                         key={message._id}
                     >

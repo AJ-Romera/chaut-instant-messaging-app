@@ -43,8 +43,6 @@ function App() {
         };
     }, [messages]);
 
-    console.log(messages);
-
     useEffect(() => {
         const pusher = new Pusher('d8b17a5966dacdd69d8b', {
             cluster: 'eu',
@@ -60,8 +58,6 @@ function App() {
             roomsChannel.unsubscribe();
         };
     }, [rooms]);
-
-    console.log(rooms);
 
     return (
         <div className='app'>
