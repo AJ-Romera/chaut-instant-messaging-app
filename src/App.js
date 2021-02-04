@@ -73,10 +73,10 @@ function App() {
                         <Sidebar rooms={rooms} />
                         <Switch>
                             <Route path='/rooms/:roomId'>
-                                <Chat messages={messages} />
+                                <Chat rooms={rooms} messages={messages} />
                             </Route>
                             <Route path='/'>
-                                <Chat messages={messages} />
+                                <Chat rooms={rooms} messages={messages} />
                             </Route>
                         </Switch>
                     </Router>
