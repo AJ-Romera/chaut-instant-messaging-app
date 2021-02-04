@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Chat.css';
 import axios from '../../axios';
 import { useStateValue } from '../../StateProvider';
+import { useParams } from 'react-router-dom';
 
 /* Icons, Avatar... */
 import { Avatar, IconButton } from '@material-ui/core';
@@ -12,6 +13,13 @@ import MicIcon from '@material-ui/icons/Mic';
 function Chat({ messages }) {
     const [input, setInput] = useState('');
     const [{ user }, dispatch] = useStateValue();
+    const { roomId } = useParams();
+    const [roomName, setRoomName] = useState('');
+
+    /* useEffect(() => {
+        if (roomId) {
+        }
+    }, [roomId]); */
 
     const sendMessage = async (e) => {
         e.preventDefault();

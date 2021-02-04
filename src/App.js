@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Pusher from 'pusher-js';
 import axios from './axios';
+import { useStateValue } from './StateProvider';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 /* Components */
 import Chat from './components/Chat/Chat';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './components/Login/Login';
-import { useStateValue } from './StateProvider';
 
 function App() {
     const [messages, setMessages] = useState([]);
@@ -68,8 +69,17 @@ function App() {
                 <Login />
             ) : (
                 <div className='app__body'>
-                    <Sidebar rooms={rooms} />
-                    <Chat messages={messages} />
+                    <Router>
+                        <Sidebar rooms={rooms} />
+                        <Switch>
+                            <Route path='/rooms/:roomId'>
+                                <Chat messages={messages} />
+                            </Route>
+                            <Route path='/'>
+                                <Chat messages={messages} />
+                            </Route>
+                        </Switch>
+                    </Router>
                 </div>
             )}
         </div>

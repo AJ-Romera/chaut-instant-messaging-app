@@ -1,6 +1,7 @@
 import { Avatar } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './SidebarChat.css';
 
 function SidebarChat({ id, name, addNewChat }) {
@@ -21,15 +22,17 @@ function SidebarChat({ id, name, addNewChat }) {
     };
 
     return !addNewChat ? (
-        <div className='sidebarChat'>
-            <Avatar
-                src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`}
-            />
-            <div className='sidebarChat__info'>
-                <h2>{name}</h2>
-                <p>This is the last message</p>
+        <Link to={`/rooms/${id}`}>
+            <div className='sidebarChat'>
+                <Avatar
+                    src={`https://avatars.dicebear.com/api/avataaars/${seed}.svg`}
+                />
+                <div className='sidebarChat__info'>
+                    <h2>{name}</h2>
+                    <p>This is the last message</p>
+                </div>
             </div>
-        </div>
+        </Link>
     ) : (
         <div onClick={createChat} className='sidebarChat'>
             <h2>Add new chat</h2>
