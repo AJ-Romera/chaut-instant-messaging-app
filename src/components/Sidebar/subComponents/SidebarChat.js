@@ -16,7 +16,7 @@ function SidebarChat({ id, name, addNewChat }) {
 
         const roomName = prompt('Please enter a name for the chat room');
 
-        await axios.post('http://localhost:9000/rooms/new', {
+        await axios.post('https://chaut.herokuapp.com/rooms/new', {
             name: roomName,
         });
     };
