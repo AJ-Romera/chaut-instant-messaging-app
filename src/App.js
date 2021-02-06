@@ -1,4 +1,3 @@
-import dotenv from 'dotenv';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Pusher from 'pusher-js';
@@ -10,8 +9,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Chat from './components/Chat/Chat';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './components/Login/Login';
-
-dotenv.config();
 
 function App() {
     const [messages, setMessages] = useState([]);
@@ -31,7 +28,7 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const pusher = new Pusher(process.env.PUSHER_KEY, {
+        const pusher = new Pusher('1a91a311edf5e98e65c7', {
             cluster: 'eu',
         });
 
@@ -47,7 +44,7 @@ function App() {
     }, [messages]);
 
     useEffect(() => {
-        const pusher = new Pusher(process.env.PUSHER_KEY, {
+        const pusher = new Pusher('1a91a311edf5e98e65c7', {
             cluster: 'eu',
         });
 
