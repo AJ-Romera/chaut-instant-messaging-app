@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Pusher from 'pusher-js';
@@ -9,6 +10,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Chat from './components/Chat/Chat';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './components/Login/Login';
+
+dotenv.config();
 
 function App() {
     const [messages, setMessages] = useState([]);
